@@ -1,0 +1,1066 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<!-- *********************************** -->
+	<!-- Padrao para o pom.xml do modulo WEB -->
+	<!-- *********************************** -->
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>BSMO-Wallet-web</artifactId>
+	<name>BSMO-Wallet-web</name>
+	<packaging>war</packaging>
+
+
+	<!-- ************************************ -->
+	<!-- Configuracao do parent project (POM) -->
+	<!-- ************************************ -->
+	<parent>
+		<groupId>BSMO-Wallet</groupId>
+		<artifactId>BSMO-Wallet-pom</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>../BSMO-Wallet-pom/pom.xml</relativePath>
+	</parent>
+
+	<!-- **************************************** -->
+	<!-- Configuracao das dependencias do projeto -->
+	<!-- **************************************** -->
+	<dependencies>
+		<!-- Dependencia da framework BSAD 3 -->
+		<!-- <dependency> <groupId>BSAD-Framework-3.6.7</groupId> <artifactId>bsad-framework</artifactId> 
+			<version>3.6.7</version> <type>pom</type> <scope>provided</scope> <exclusions> 
+			<exclusion> <groupId>BSAD-Framework-3.6.7</groupId> <artifactId>bcprov-jdk14</artifactId> 
+			</exclusion> <exclusion> <groupId>BSAD-Framework-3.6.7</groupId> <artifactId>bcprov-jdk15on</artifactId> 
+			</exclusion> <exclusion> <groupId>BSAD-Framework-3.6.7</groupId> <artifactId>bcmail-jdk14</artifactId> 
+			</exclusion> </exclusions> </dependency> Dependencia das regras de conformidade 
+			da framework BSAD 3 -->
+
+		<dependency>
+			<groupId>BSAD-Framework-3-Resources</groupId>
+			<artifactId>bsad-framework-resources</artifactId>
+			<version>3</version>
+			<type>pom</type>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Dependencia da api WAS 8 -->
+		<dependency>
+			<groupId>ibm.was-8</groupId>
+			<artifactId>ibm-was</artifactId>
+			<version>8</version>
+			<type>pom</type>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>aopalliance</groupId>
+			<artifactId>aopalliance</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/aopalliance-1.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>asm</groupId>
+			<artifactId>asm</artifactId>
+			<version>3.2</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/asm-3.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>aspectjweaver</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.6.8</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/aspectjweaver-1.6.8.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>BSAD</groupId>
+			<artifactId>BSAD-Foundation-Core</artifactId>
+			<version>3.6.6</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/BSAD-Foundation-Core-3.6.6.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>BSAD</groupId>
+			<artifactId>BSAD-Security</artifactId>
+			<version>1.0.14</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/BSAD-Security-1.0.14.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>BSAD</groupId>
+			<artifactId>BSAD-Struts</artifactId>
+			<version>3.6.10</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/BSAD-Struts-3.6.10.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>BSAD</groupId>
+			<artifactId>BSAD-struts2-json-plugin</artifactId>
+			<version>2.3.32</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/BSAD-struts2-json-plugin-2.3.32.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/cglib-2.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>commons</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/commons-collections-3.2.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>commons</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.2</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/commons-fileupload-1.3.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>commons</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/commons-httpclient-3.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>commons</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.2</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/commons-io-2.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/commons-lang3-3.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>cxf</groupId>
+			<artifactId>cxf-api</artifactId>
+			<version>2.7.10</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/cxf-api-2.7.10.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>cxf</groupId>
+			<artifactId>cxf-rt-bindings-soap</artifactId>
+			<version>2.7.10</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/cxf-rt-bindings-soap-2.7.10.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>cxf</groupId>
+			<artifactId>cxf-rt-bindings-xml</artifactId>
+			<version>2.7.10</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/cxf-rt-bindings-xml-2.7.10.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>cxf</groupId>
+			<artifactId>cxf-rt-core</artifactId>
+			<version>2.7.10</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/cxf-rt-core-2.7.10.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>cxf</groupId>
+			<artifactId>cxf-rt-databinding-jaxb</artifactId>
+			<version>2.7.10</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/cxf-rt-databinding-jaxb-2.7.10.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+			<version>2.7.10</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/cxf-rt-frontend-jaxrs-2.7.10.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>2.7.10</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/cxf-rt-frontend-jaxws-2.7.10.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>cxf</groupId>
+			<artifactId>cxf-rt-frontend-simple</artifactId>
+			<version>2.7.10</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/cxf-rt-frontend-simple-2.7.10.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>cxf</groupId>
+			<artifactId>cxf-rt-rs-extension-providers</artifactId>
+			<version>2.7.10</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/cxf-rt-rs-extension-providers-2.7.10.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>cxf</groupId>
+			<artifactId>cxf-rt-rs-security-cors</artifactId>
+			<version>2.7.10</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/cxf-rt-rs-security-cors-2.7.10.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>2.7.10</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/cxf-rt-transports-http-2.7.10.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>cxf</groupId>
+			<artifactId>cxf-rt-ws-addr</artifactId>
+			<version>2.7.10</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/cxf-rt-ws-addr-2.7.10.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>cxf</groupId>
+			<artifactId>cxf-rt-ws-policy</artifactId>
+			<version>2.7.10</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/cxf-rt-ws-policy-2.7.10.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>cxf</groupId>
+			<artifactId>cxf-rt-ws-security</artifactId>
+			<version>2.7.10</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/cxf-rt-ws-security-2.7.10.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.22</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/freemarker-2.3.22.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>16.0.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/guava-16.0.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jackson</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.8.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/jackson-annotations-2.8.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jackson</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.8.7</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/jackson-core-2.8.7.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jackson</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.8.7</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/jackson-databind-2.8.7.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jackson</groupId>
+			<artifactId>jackson-jaxrs-base</artifactId>
+			<version>2.8.7</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/jackson-jaxrs-base-2.8.7.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jackson</groupId>
+			<artifactId>jackson-jaxrs-json-provider</artifactId>
+			<version>2.8.7</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/jackson-jaxrs-json-provider-2.8.7.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jackson</groupId>
+			<artifactId>jackson-module-jaxb-annotations</artifactId>
+			<version>2.8.7</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/jackson-core-2.8.7.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jakarta</groupId>
+			<artifactId>jakarta-oro</artifactId>
+			<version>2.0.8</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/jakarta-oro-2.0.8.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jasper</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>3.7.6</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/jasperreports-3.7.6.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>jasper</groupId>
+			<artifactId>jasperreports-fonts</artifactId>
+			<version>3.7.6</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/jasperreports-fonts-3.7.6.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.11.0.GA</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/javassist-3.11.0.GA.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j-over-slf4j-fix</artifactId>
+			<version>1.7.6</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/log4j-over-slf4j-fix-1.7.6.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.1.2</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/logback-classic-1.1.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>1.1.2</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/logback-core-1.1.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>maven</groupId>
+			<artifactId>maven-scm-api</artifactId>
+			<version>1.4</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/maven-scm-api-1.4.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>maven</groupId>
+			<artifactId>maven-scm-provider-svn-commons</artifactId>
+			<version>1.4</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/maven-scm-provider-svn-commons-1.4.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>maven</groupId>
+			<artifactId>maven-scm-provider-svnexe</artifactId>
+			<version>1.4</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/maven-scm-provider-svnexe-1.4.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>neethi</groupId>
+			<artifactId>neethi</artifactId>
+			<version>3.0.3</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/neethi-3.0.3.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>ognl</groupId>
+			<artifactId>ognl</artifactId>
+			<version>3.0.19</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/ognl-3.0.19.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.8</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/poi-3.8.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.8</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/poi-ooxml-3.8.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>regexp</groupId>
+			<artifactId>regexp</artifactId>
+			<version>1.3</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/regexp-1.3.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>serializer</groupId>
+			<artifactId>serializer</artifactId>
+			<version>2.7.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/serializer-2.7.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>signeddatagenerator</groupId>
+			<artifactId>signeddatagenerator-jdk14</artifactId>
+			<version>110</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/signeddatagenerator-jdk14-110.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>sitemesh</groupId>
+			<artifactId>sitemesh</artifactId>
+			<version>2.4.2</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/sitemesh-2.4.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.6</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/slf4j-api-1.7.6.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>3.0.7.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-aop-3.0.7.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-asm</artifactId>
+			<version>3.0.7.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-asm-3.0.7.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>3.0.7.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-aspects-3.0.7.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-batch-core</artifactId>
+			<version>2.0.3.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-batch-core-2.0.3.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-batch-infrastructure</artifactId>
+			<version>2.0.3.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-batch-infrastructure-2.0.3.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>3.0.7.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-beans-3.0.7.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>3.0.7.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-context-3.0.7.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>3.0.7.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-context-support-3.0.7.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>3.0.7.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-core-3.0.7.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>3.0.7.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-expression-3.0.7.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>3.0.7.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-jdbc-3.0.7.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-jms</artifactId>
+			<version>3.0.7.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-jms-3.0.7.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>3.0.7.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-orm-3.0.7.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-oxm</artifactId>
+			<version>3.0.7.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-oxm-3.0.7.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>3.0.7.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-test-3.0.7.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>3.0.7.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-tx-3.0.7.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>3.0.7.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-web-3.0.7.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>3.0.7.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-webmvc-3.0.7.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-webmvc-portlet</artifactId>
+			<version>3.0.7.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-webmvc-portlet-3.0.7.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-ldap-core</artifactId>
+			<version>1.3.1.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-ldap-core-1.3.1.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-ldap-core-tiger</artifactId>
+			<version>1.3.1.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-ldap-core-tiger-1.3.1.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-ldap-ldif-batch</artifactId>
+			<version>1.3.1.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-ldap-ldif-batch-1.3.1.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-ldap-ldif-core</artifactId>
+			<version>1.3.1.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-ldap-ldif-core-1.3.1.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>spring</groupId>
+			<artifactId>spring-ldap-odm</artifactId>
+			<version>1.3.1.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/spring-ldap-odm-1.3.1.RELEASE.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>sslext</groupId>
+			<artifactId>sslext</artifactId>
+			<version>1.2-0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/sslext-1.2-0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>stax2</groupId>
+			<artifactId>stax2-api</artifactId>
+			<version>3.1.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/stax2-api-3.1.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>struts</groupId>
+			<artifactId>struts-annotations</artifactId>
+			<version>1.0.5</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/struts-annotations-1.0.5.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>struts2</groupId>
+			<artifactId>struts2-core</artifactId>
+			<version>2.3.32</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/struts2-core-2.3.32.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>struts2</groupId>
+			<artifactId>struts2-jasperreports-plugin</artifactId>
+			<version>2.3.32</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/struts2-jasperreports-plugin-2.3.32.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>struts2</groupId>
+			<artifactId>struts2-jfreechart-plugin</artifactId>
+			<version>2.3.32</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/struts2-jfreechart-plugin-2.3.32.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>struts2</groupId>
+			<artifactId>struts2-jquery-grid-plugin</artifactId>
+			<version>3.7.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/struts2-jquery-grid-plugin-3.7.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>struts2</groupId>
+			<artifactId>struts2-jquery-plugin</artifactId>
+			<version>3.7.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/struts2-jquery-plugin-3.7.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>struts2</groupId>
+			<artifactId>struts2-jquery-richtext-plugin</artifactId>
+			<version>3.7.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/struts2-jquery-richtext-plugin-3.7.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>struts2</groupId>
+			<artifactId>struts2-jquery-tree-plugin</artifactId>
+			<version>3.7.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/struts2-jquery-tree-plugin-3.7.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>struts2</groupId>
+			<artifactId>struts2-sitemesh-plugin</artifactId>
+			<version>2.3.32</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/struts2-sitemesh-plugin-2.3.32.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>struts2</groupId>
+			<artifactId>struts2-spring-plugin</artifactId>
+			<version>2.3.32</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/struts2-spring-plugin-2.3.32.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>WebApp</groupId>
+			<artifactId>WebApp</artifactId>
+			<version>10.4.0019.0049</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/WebApp-10.4.0019.0049.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>WebApp</groupId>
+			<artifactId>WebAppAddons</artifactId>
+			<version>10.4.0019.0049</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/WebAppAddons-10.4.0019.0049.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>WebApp</groupId>
+			<artifactId>WebAppAdmin</artifactId>
+			<version>10.4.0019.0049</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/WebAppAdmin-10.4.0019.0049.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>WebApp</groupId>
+			<artifactId>WebAppBeans</artifactId>
+			<version>10.4.0019.0049</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/WebAppBeans-10.4.0019.0049.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>WebApp</groupId>
+			<artifactId>WebAppGui</artifactId>
+			<version>10.4.0019.0049</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/WebAppGui-10.4.0019.0049.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>WebApp</groupId>
+			<artifactId>WebAppServant</artifactId>
+			<version>10.4.0019.0049</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/WebAppServant-10.4.0019.0049.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>WebApp</groupId>
+			<artifactId>WebAppTagLibs</artifactId>
+			<version>10.4.0019.0049</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/WebAppTaglibs-10.4.0019.0049.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>WebApp</groupId>
+			<artifactId>WebAppTransforms</artifactId>
+			<version>10.4.0019.0049</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/WebAppTransforms-10.4.0019.0049.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>WebBeans</groupId>
+			<artifactId>WebBeans</artifactId>
+			<version>10.4.0019.0049</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/WebBeans-10.4.0019.0049.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>WebBlocks</groupId>
+			<artifactId>WebBlocks</artifactId>
+			<version>10.4.0019.0049</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/WebBlocks-10.4.0019.0049.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>WebObjects</groupId>
+			<artifactId>WebObjects</artifactId>
+			<version>10.4.0019.0049</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/WebObjects-10.4.0019.0049.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>WebPlatform</groupId>
+			<artifactId>WebPlatform</artifactId>
+			<version>10.4.0019.0049</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/WebPlatform-10.4.0019.0049.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>WebTags</groupId>
+			<artifactId>WebTags</artifactId>
+			<version>10.4.0019.0049</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/WebTags-10.4.0019.0049.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>WebTasks</groupId>
+			<artifactId>WebTasks</artifactId>
+			<version>10.4.0019.0049</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/WebTasks-10.4.0019.0049.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>WebTransform</groupId>
+			<artifactId>WebApp</artifactId>
+			<version>10.4.0019.0049</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/WebTransform-10.4.0019.0049.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>WebUtils</groupId>
+			<artifactId>WebUtils</artifactId>
+			<version>10.4.0019.0049</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/WebUtils-10.4.0019.0049.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>WebXMLUtils</groupId>
+			<artifactId>WebXMLUtils</artifactId>
+			<version>10.4.0019.0049</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/WebXMLUtils-10.4.0019.0049.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>woodstox</groupId>
+			<artifactId>woodstox-core-asl</artifactId>
+			<version>4.2.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/woodstox-core-asl-4.2.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>xml-resolver</groupId>
+			<artifactId>xml-resolver</artifactId>
+			<version>1.2</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/xml-resolver-1.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>xmlbeans</groupId>
+			<artifactId>xmlbeans-fix</artifactId>
+			<version>2.4.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/xmlbeans-fix-2.4.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>xmlschema</groupId>
+			<artifactId>xmlschema-core</artifactId>
+			<version>2.1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/xmlschema-core-2.1.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>xmlsec</groupId>
+			<artifactId>xmlsec</artifactId>
+			<version>2.0.5</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/xmlsec-2.0.5.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>xmltooling</groupId>
+			<artifactId>xmltooling</artifactId>
+			<version>1.3.2-1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/xmltooling-1.3.2-1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>xmlworker</groupId>
+			<artifactId>xmlworker</artifactId>
+			<version>1.1.2</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/xmlworker-1.1.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>xwork</groupId>
+			<artifactId>xwork-core</artifactId>
+			<version>2.3.32</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/xwork-core-2.3.32.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>passkit4j</groupId>
+			<artifactId>passkit4j</artifactId>
+			<version>2.0.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/passkit4j-2.0.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>bcprov-jdk15</groupId>
+			<artifactId>bcprov-jdk15</artifactId>
+			<version>1.46</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/bcprov-jdk15on-1.47.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>bcpkix-jdk15</groupId>
+			<artifactId>bcpkix-jdk15</artifactId>
+			<version>1.47</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/bcpkix-jdk15on-1.47.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>bcmail-jdk15</groupId>
+			<artifactId>bcmail-jdk15</artifactId>
+			<version>1.47</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/bcmail-jdk15on-1.47.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>struts</groupId>
+			<artifactId>struts-taglib</artifactId>
+			<version>1.3.10</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/web/WEB-INF/lib/struts-taglib-1.3.10.jar</systemPath>
+		</dependency>
+
+	</dependencies>
+
+	<!-- ******************************** -->
+	<!-- Configuracao do build do projeto -->
+	<!-- ******************************** -->
+	<build>
+		<finalName>${project.parent.groupId}-web</finalName>
+		<sourceDirectory>src</sourceDirectory>
+		<testSourceDirectory>test</testSourceDirectory>
+		<resources>
+			<resource>
+				<directory>src</directory>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>test</directory>
+			</testResource>
+		</testResources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<warSourceDirectory>web</warSourceDirectory>
+					<archive>
+						<manifestFile>web/META-INF/MANIFEST.MF</manifestFile>
+						<manifestEntries>
+							<Application-Name>${pom.build.finalName}</Application-Name>
+							<Iteration-Name>${iteration}</Iteration-Name>
+							<BuildServerReleaseVersion>${RELEASE_VERSION}</BuildServerReleaseVersion>
+							<BuildServerExecutorNumber>${EXECUTOR_NUMBER}</BuildServerExecutorNumber>
+							<BuildServerBuildId>${BUILD_ID}</BuildServerBuildId>
+							<BuildServerBuildNumber>${BUILD_NUMBER}</BuildServerBuildNumber>
+							<BuildServerDisplayName>${BUILD_DISPLAY_NAME}</BuildServerDisplayName>
+							<BuildServerJobName>${JOB_NAME}</BuildServerJobName>
+							<BuildServerNodeName>${NODE_NAME}</BuildServerNodeName>
+							<BuildServerNodeLabels>${NODE_LABELS}</BuildServerNodeLabels>
+							<BuildServerWorkspace>${WORKSPACE}</BuildServerWorkspace>
+							<BuildServerJobUrl>${JOB_URL}</BuildServerJobUrl>
+							<BuildServerBuildUrl>${BUILD_URL}</BuildServerBuildUrl>
+							<BuildServerSvnRevision>${SVN_REVISION}</BuildServerSvnRevision>
+							<BuildServerSvnUrl>${SVN_URL}</BuildServerSvnUrl>
+							<addClasspath>true</addClasspath>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
+
