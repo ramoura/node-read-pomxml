@@ -1,17 +1,17 @@
+const SearchProperty = require('./SearchProperty');
 const XmlToJsonConverter = require('./XmlToJsonConverter');
 
-var converter = new XmlToJsonConverter('./pom.xml')
+let searchName = new SearchProperty();
+let converter = new XmlToJsonConverter('./pom.xml');
 
-converter.convert((node) => searchNode(node, 'dependency', (found) => {
-    console.log(found);
-}))
+let propNameForSearch = 'dependency';
 
+converter.convert((err, json) => {
+    if (err) return console.error(err);
 
-function searchNode(node, name, found) {
-    if(node.hasOwnProperty(name)) {
-        found(node);
-    }
-    if(node instanceof Object){
-        Object.keys(node).forEach(key => searchNode(node[key], name, found));
-    }
-}
+    searchName.searchProperty(json, propNameForSearch, (found) => {
+        let convert = found.dependency
+                      .map((item) => `${item.groupId[0]} | ${item.artifactId[0]} | ${item.version[0]}`)
+        convert.forEach((data) => console.log(data));
+    });
+});
